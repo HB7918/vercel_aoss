@@ -1,10 +1,24 @@
 'use client';
 
 import { useState } from 'react';
+import AWSAccountModal from './AWSAccountModal';
 import CreateCollectionFlyout from './CreateCollectionFlyout';
+import LinkExistingAccountFlyout from './LinkExistingAccountFlyout';
 
 export default function IntegrationsContent() {
-  const [isFlyoutOpen, setIsFlyoutOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isNewAccountFlyoutOpen, setIsNewAccountFlyoutOpen] = useState(false);
+  const [isExistingAccountFlyoutOpen, setIsExistingAccountFlyoutOpen] = useState(false);
+
+  const handleNewAccount = () => {
+    setIsModalOpen(false);
+    setIsNewAccountFlyoutOpen(true);
+  };
+
+  const handleExistingAccount = () => {
+    setIsModalOpen(false);
+    setIsExistingAccountFlyoutOpen(true);
+  };
 
   const latestIntegrations = [
     {
@@ -67,7 +81,7 @@ export default function IntegrationsContent() {
         <h1>Integrations</h1>
         <div className="integrations-actions">
           <button className="btn-secondary">Integrations Console</button>
-          <button className="btn-primary" onClick={() => setIsFlyoutOpen(true)}>
+          <button className="btn-primary" onClick={() => setIsModalOpen(true)}>
             Install Integration
           </button>
         </div>
@@ -127,10 +141,22 @@ export default function IntegrationsContent() {
         </div>
       </div>
 
-      {/* Flyout */}
+      {/* Modal */}
+      <AWSAccountModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSelectNewAccount={handleNewAccount}
+        onSelectExistingAccount={handleExistingAccount}
+      />
+
+      {/* Flyouts */}
       <CreateCollectionFlyout 
-        isOpen={isFlyoutOpen} 
-        onClose={() => setIsFlyoutOpen(false)} 
+        isOpen={isNewAccountFlyoutOpen} 
+        onClose={() => setIsNewAccountFlyoutOpen(false)} 
+      />
+      <LinkExistingAccountFlyout 
+        isOpen={isExistingAccountFlyoutOpen} 
+        onClose={() => setIsExistingAccountFlyoutOpen(false)} 
       />
     </div>
   );
