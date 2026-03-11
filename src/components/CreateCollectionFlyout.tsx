@@ -110,7 +110,10 @@ export default function CreateCollectionFlyout({ isOpen, onClose }: CreateCollec
                   checked={collectionType === 'Search'}
                   onChange={(e) => setCollectionType(e.target.value)}
                 />
-                <span className="radio-label">Search</span>
+                <div className="radio-text">
+                  <span className="radio-label">Search</span>
+                  <span className="radio-description">Full-text queries for your applications and websites</span>
+                </div>
               </label>
               <label className="radio-option">
                 <input
@@ -120,7 +123,10 @@ export default function CreateCollectionFlyout({ isOpen, onClose }: CreateCollec
                   checked={collectionType === 'Time series'}
                   onChange={(e) => setCollectionType(e.target.value)}
                 />
-                <span className="radio-label">Time series</span>
+                <div className="radio-text">
+                  <span className="radio-label">Time series</span>
+                  <span className="radio-description">Log analysis and metrics data over time</span>
+                </div>
               </label>
               <label className="radio-option">
                 <input
@@ -130,13 +136,12 @@ export default function CreateCollectionFlyout({ isOpen, onClose }: CreateCollec
                   checked={collectionType === 'Vector search'}
                   onChange={(e) => setCollectionType(e.target.value)}
                 />
-                <span className="radio-label">Vector search</span>
+                <div className="radio-text">
+                  <span className="radio-label">Vector search</span>
+                  <span className="radio-description">Semantic similarity using machine learning embeddings</span>
+                </div>
               </label>
             </div>
-            <p className="form-hint">
-              The collection type defines how data is indexed and queried: Time series for log analysis, 
-              search for full-text queries, or Vector search for semantic similarity.
-            </p>
           </div>
 
           {/* Collection Group Name */}
