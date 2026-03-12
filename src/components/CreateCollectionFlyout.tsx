@@ -174,7 +174,7 @@ export default function CreateCollectionFlyout({ isOpen, onClose }: CreateCollec
                 </div>
               </div>
               <p className="plan-card-description">
-                Start with $100 USD credits for up to 6 months. Credits are consumed based on the product rates.
+                Start with $100 USD credits for up to 6 months. Credits are consumed based on the product rates. An OCU (OpenSearch Compute Unit) is a unit of compute and memory capacity used to run your search and indexing workloads.
               </p>
 
               <div className="plan-details-simple">
